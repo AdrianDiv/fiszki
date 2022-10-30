@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <link type="text/css" rel="stylesheet" href="css.css">
+    <title>Nauka słówek</title>
+
+</head>
+
+<body>
+    <form onsubmit="sprawdzenie()">Cześć<br>
+        <input type="text" title="sprawdz" id="sd">
+        <input type="submit">
+    </form>
+
+    <form onsubmit="sprawdzenie1()">Jak tam?<br>
+        <input type="text" title="sprawdz" id="sad">
+        <input type="submit">
+    </form>
+
+    <script>
+        function sprawdzenie() {
+            var spraw = document.getElementById("sd").value;
+            var dodanie = "hi";
+            if (spraw == dodanie) {
+                alert("Dobrze, proszę przejdź dalej");
+            } else {
+                alert("Nie dobrze");
+            }
+        }
+
+        function sprawdzenie1() {
+            var spraw = document.getElementById("sad").value;
+            var dodanie = "how are you?";
+            if (spraw == dodanie) {
+                alert("Dobrze, proszę przejdź dalej");
+            } else {
+                alert("Nie dobrze");
+            }
+        }
+
+    </script>
+</body>
+
+</html>
