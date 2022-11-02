@@ -11,6 +11,7 @@
     <form onsubmit="sprawdzenie()">Cześć<br>
         <input type="text" title="sprawdz" id="sd">
         <input type="submit">
+        <inpy type="submit" onclick="check()">
     </form>
 
     <form onsubmit="sprawdzenie1()">Jak tam? / Jak się masz?<br>
@@ -19,6 +20,10 @@
     </form>
 
     <script>
+        function check(){
+            alert(dodanie);
+        }
+        
         function sprawdzenie() {
             var spraw = document.getElementById("sd").value;
             var dodanie = "hi";
