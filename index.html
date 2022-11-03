@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+
 <html>
 
 <head>
@@ -8,15 +8,16 @@
 </head>
 
 <body>
-    <form onsubmit="sprawdzenie()">Cześć<br>
+    <form id="jeden" onsubmit="sprawdzenie()">Cześć<br>
         <input type="text" title="sprawdz" id="sd">
-        <input type="submit">
-        <inpy type="submit" onclick="check()">
+        <input type="submit" onclick="check()">
+        <input value="Sprawdź Odpowiedź" type="submit" onclick="sprawdz1()">
     </form>
 
-    <form onsubmit="sprawdzenie1()">Jak tam? / Jak się masz?<br>
+    <form id="dwa" onsubmit="sprawdzenie1()">Jak tam? / Jak się masz?<br>
         <input type="text" title="sprawdz" id="sad">
         <input type="submit">
+        <input value="Sprawdź Odpowiedź" type="submit" onclick="sprawdz2()">
     </form>
 
     <script>
@@ -43,7 +44,16 @@
                 alert("Nie dobrze");
             }
         }
-
+        
+        function sprawdz1(){
+            var jeden = document.getElementById("jeden");
+            jeden.innerHTML = "Hi";
+        }
+        
+        function sprawdz2(){
+            var dwa = document.getElementById("dwa");
+            dwa.innerHTML = "how are you?";
+        }
     </script>
 </body>
 
