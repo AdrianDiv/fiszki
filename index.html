@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <link type="text/css" rel="stylesheet" href="css.css">
+
+
     <title>Nauka słówek</title>
     <style>
         body{
@@ -25,6 +26,17 @@
         <input value="Sprawdź Odpowiedź" type="submit" onclick="sprawdz2()">
     </form>
 
+    <form id="trzy" onsubmit="sprawdzenie3()">Kamila jest chora<br>
+        <input type="text" title="sprawdz" id="sada">
+        <input type="submit">
+        <input value="Sprawdź Odpowiedź" type="submit" onclick="trzy3()">
+    </form>
+    
+    
+    
+    
+    
+    
     <script>
         function check(){
             alert(dodanie);
@@ -58,6 +70,21 @@
         function sprawdz2(){
             var dwa = document.getElementById("dwa");
             dwa.innerHTML = "how are you?";
+        }
+        
+                function trzy3(){
+            var trzy = document.getElementById("trzy");
+            trzy.innerHTML = "kamila is sick";
+        }
+        
+        function sprawdzenie3() {
+            var spraw = document.getElementById("sada").value;
+            var dodanie = "kamila is sick";
+            if (spraw == dodanie) {
+                alert("Dobrze, proszę przejdź dalej");
+            } else {
+                alert("Nie dobrze");
+            }
         }
     </script>
 </body>
