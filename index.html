@@ -1,4 +1,3 @@
-
 <html>
 
 <head>
@@ -33,15 +32,15 @@
     </form>
     
     
-    
+        <form id="cztery" onsubmit="sprawdzenie4()">Kamila jest chora<br>
+        <input type="text" title="sprawdz" id="4">
+        <input type="submit">
+        <input value="Sprawdź Odpowiedź" type="submit" onclick="cztery()">
+    </form>
     
     
     
     <script>
-        function check(){
-            alert(dodanie);
-        }
-        
         function sprawdzenie() {
             var spraw = document.getElementById("sd").value;
             var dodanie = "hi";
@@ -72,12 +71,27 @@
             dwa.innerHTML = "how are you?";
         }
         
-                function trzy3(){
+        function trzy3(){
             var trzy = document.getElementById("trzy");
             trzy.innerHTML = "kamila is sick";
         }
         
         function sprawdzenie3() {
+            var spraw = document.getElementById("sada").value;
+            var dodanie = "kamila is sick";
+            if (spraw == dodanie) {
+                alert("Dobrze, proszę przejdź dalej");
+            } else {
+                alert("Nie dobrze");
+            }
+        }
+        
+                function cztery(){
+            var cztery = document.getElementById("4");
+            trzy.innerHTML = "kamila is sick";
+        }
+        
+        function sprawdzenie4()() {
             var spraw = document.getElementById("sada").value;
             var dodanie = "kamila is sick";
             if (spraw == dodanie) {
