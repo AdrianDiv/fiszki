@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Quiz tłumaczenia</title>
+</head>
+<body>
+  <h1>Quiz tłumaczenia</h1>
+  <div id="quiz">
+    <p id="englishWord"></p>
+    <input type="text" id="translation">
+    <button id="submitButton">Sprawdź odpowiedź</button>
+  </div>
+  <p id="resultMessage"></p>
+  <script>
+    const englishWords = ['dog', 'cat', 'bird', 'apple', 'banana', 'orange', 'car', 'truck', 'bus', 'train', 'airplane', 'boat', 'house', 'apartment', 'office', 'store', 'restaurant', 'cafe', 'hotel', 'hospital', 'school', 'university', 'library', 'museum', 'park', 'beach', 'mountain', 'lake', 'river', 'forest', 'desert', 'iceberg', 'island', 'ocean', 'pet', 'baby', 'child', 'teenager', 'adult', 'elderly', 'man', 'woman', 'boy', 'girl', 'parent', 'sibling', 'relative', 'friend', 'colleague', 'teacher', 'student', 'professor', 'doctor', 'nurse', 'lawyer', 'engineer', 'scientist', 'artist', 'musician', 'writer', 'actor', 'athlete', 'coach', 'manager', 'president', 'prime minister', 'king', 'queen', 'prince', 'princess', 'duke', 'duchess', 'count', 'countess', 'lord', 'lady', 'sir', 'madam', 'dame', 'baron', 'baroness', 'knight', 'saint', 'pope', 'bishop', 'cardinal', 'priest', 'rabbi', 'imam', 'monk', 'nun', 'yogi', 'sage'];
+
+    const correctTranslations = {
+  'dog': 'pies',
+  'cat': 'kot',
+  'bird': 'ptak',
+  'apple': 'jabłko',
+  'banana': 'banan',
+  'orange': 'pomarańcza',
+  'car': 'samochód',
+  'truck': 'ciężarówka',
+  'bus': 'autobus',
+  'train': 'pociąg',
+  'airplane': 'samolot',
+  'boat': 'łódź',
+  'house': 'dom',
+  'apartment': 'mieszkanie',
+  'office': 'biuro',
+  'store': 'sklep',
+  'restaurant': 'restauracja',
+  'cafe': 'kawiarnia',
+  'hotel': 'hotel',
+  'hospital': 'szpital',
+  'school': 'szkoła',
+  'university': 'uniwersytet',
+  'library': 'biblioteka',
+  'museum': 'muzeum',
+  'park': 'park',
+  'beach': 'plaża',
+  'mountain': 'góra',
+  'lake': 'jezioro',
+  'river': 'rzeka',
+  'forest': 'las',
+  'desert': 'pustynia',
+  'iceberg': 'berg',
+  'island': 'wyspa',
+  'ocean': 'ocean',
+  'pet': 'zwierzątko',
+  'baby': 'niemowlę',
+  'child': 'dziecko',
+  'teenager': 'nastolatek',
+  'adult': 'dorosły',
+  'elderly': 'starszy',
+  'man': 'mężczyzna',
+  'woman': 'kobieta',
+  'boy': 'chłopiec',
+  'girl': 'dziewczynka',
+  'parent': 'rodzic',
+  'sibling': 'rodzeństwo',
+  'relative': 'krewny',
+  'friend': 'przyjaciel',
+  'colleague': 'kolega',
+  'teacher': 'nauczyciel',
+  'student': 'uczeń',
+  'professor': 'profesor',
+  'doctor': 'lekarz',
+  'nurse': 'pielęgniarka',
+  'lawyer': 'adwokat',
+  'engineer': 'inżynier',
+  'scientist': 'naukowiec',
+  'artist': 'artysta',
+  'musician': 'muzyk',
+  'writer': 'pisarz',
+  'actor': 'aktor',
+  'athlete': 'sportowiec',
+  'coach': 'trener',
+  'manager': 'menedżer',
+  'president': 'prezydent',
+  'prime minister': 'premier',
+  'king': 'król',
+  'queen': 'królowa',
+  'prince': 'książę',
+  'princess': 'księżniczka',
+  'duke': 'książę',
+  'duchess': 'księżna',
+  'count': 'hrabia',
+  'countess': 'hrabina',
+  'lord': 'lord',
+  'lady': 'dama',
+  'sir': 'pan',
+  'madam': 'pani',
+  'dame': 'dama',
+  'baron': 'baron',
+  'baroness': 'baronowa',
+  'knight': 'rycerz',
+  'saint': 'święty',
+  'pope': 'papież',
+  'bishop': 'biskup',
+  'cardinal': 'kardynał',
+  'priest': 'ksiądz',
+  'rabbi': 'rabin',
+  'imam': 'imam',
+  'monk': 'mnich',
+  'nun': 'zakonnica',
+  'yogi': 'jogin',
+  'sage': 'mędrzec'
+};
+
+let correctTranslation = '';
+let attempts = 0;
+
+const showNewWord = () => {
+  const index = Math.floor(Math.random() * englishWords.length);
+  const englishWord = englishWords[index];
+  correctTranslation = correctTranslations[englishWord];
+  document.getElementById('englishWord').innerHTML = englishWord;
+  attempts = 0;
+}
+
+const checkAnswer = () => {
+  const translation = document.getElementById('translation').value;
+  const resultMessage = document.getElementById('resultMessage');
+  if (translation === correctTranslation) {
+    resultMessage.innerHTML = 'Odpowiedź poprawna! Losuję nowe słowo.';
+    showNewWord();
+  } else {
+    attempts++;
+    if (attempts >= 3) {
+      resultMessage.innerHTML = `Błędna odpowiedź. Poprawna odpowiedź to: ${correctTranslation}. Losuję nowe słowo.`;
+      showNewWord();
+    } else {
+      resultMessage.innerHTML = 'Błędna odpowiedź. Spróbuj ponownie.';
+    }
+  }
+}
+
+document.getElementById('submitButton').addEventListener('click', checkAnswer);
+
+showNewWord();
+  </script>
+</body>
+</html>
